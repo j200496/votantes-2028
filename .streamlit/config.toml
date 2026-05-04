@@ -1,0 +1,17 @@
+[theme]
+primaryColor = "#FF4B4B"
+backgroundColor = "#036318"
+secondaryBackgroundColor = "#5bb813"
+textColor = "#f5eeee"
+font = "sans serif"
+
+[server]
+headless = true
+
+# This sets wide mode as default
+[browser]
+gatherUsageStats = false
+
+# Add this section for wide mode
+[client]
+showSidebarNavigation = true
