@@ -70,12 +70,11 @@ if data is not None:
         st.metric(label="Total de votantes inscritos", value=total,border=True)
         st.dataframe(df)
 
-else:
-    st.info("📂 Sube el archivo Excel para ver el reporte")
+
 
     
-if data is not None:
-    df = pd.read_excel(data)
+    if data is not None:
+     df = pd.read_excel(data)
 
     votantes_terr = df.groupby("Territorio")["Nombre"].count().reset_index().sort_values(by="Nombre", ascending=False)
     fig = px.bar(votantes_terr, x="Territorio", y="Nombre", title="Grafico de votantes inscritos por territorio",color_discrete_sequence=["lime"], text_auto=True)
@@ -87,8 +86,8 @@ if data is not None:
     context = datosbot.to_markdown(index=False)
     pregunta = st.chat_input("Escribe tu pregunta aquí...")
 
-if pregunta:
-    with st.spinner("Procesando tu pregunta..."):
+    if pregunta:
+     with st.spinner("Procesando tu pregunta..."):
         # 1. Creamos el prompt uniendo el contexto y la pregunta
         full_prompt = f"""
         Eres un asistente de campaña experto. Utiliza la siguiente información estructurada extraída de un archivo de Excel para responder la pregunta del usuario de forma precisa.
@@ -101,7 +100,9 @@ if pregunta:
 
         RESPUESTA:
         """
-
+        
+    else:
+     st.info("📂 Sube el archivo Excel para ver el reporte")
 try:
     # 2. Le pasamos el 'full_prompt' al modelo (no solo la pregunta)
     respuesta = model.generate_content(full_prompt)
