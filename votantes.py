@@ -69,7 +69,7 @@ if data is not None:
         total = df["Nombre"].count()
         st.metric(label="Total de votantes inscritos", value=total,border=True)
         st.dataframe(df)
-
+    
 
 
     
@@ -100,9 +100,6 @@ if data is not None:
 
         RESPUESTA:
         """
-        
-    else:
-     st.info("📂 Sube el archivo Excel para ver el reporte")
 try:
     # 2. Le pasamos el 'full_prompt' al modelo (no solo la pregunta)
     respuesta = model.generate_content(full_prompt)
