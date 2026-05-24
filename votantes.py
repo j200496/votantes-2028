@@ -84,8 +84,8 @@ if data is not None:
     st.header(" 👨‍💼 Chat bot asistente de campaña", divider="green",text_alignment="center")
     st.info("💬 ¡Hola! Soy tu asistente de campaña. Estoy aquí para ayudarte a responder preguntas sobre los votantes inscritos. Puedes preguntarme cosas como: \n\n- ¿Cuántos votantes hay en el territorio X? \n- ¿Cuántos votantes hay en el recinto Y? \n- ¿Cuál es el total de votantes inscritos? \n\n¡Adelante, hazme una pregunta!")
     datosbot = df.head(50)
-context = datosbot.to_markdown(index=False)
-pregunta = st.chat_input("Escribe tu pregunta aquí...")
+    context = datosbot.to_markdown(index=False)
+    pregunta = st.chat_input("Escribe tu pregunta aquí...")
 
 if pregunta:
     with st.spinner("Procesando tu pregunta..."):
