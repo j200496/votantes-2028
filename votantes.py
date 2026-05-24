@@ -5,14 +5,15 @@ from pathlib import Path
 import google.generativeai as genai
 
 
-genai.configure(api_key="AIzaSyAK9W-jqjuDd4UxHrQaBkCRF-rOCxrsiVs")
+api_key = st.secrets["GEMINI_API_KEY"]
+genai.configure(api_key=api_key)
 
 st.set_page_config(layout="wide")
 model = genai.GenerativeModel("gemini-3.1-flash-lite")
 
 
-#with open("styles.css") as f:
-    #st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+with open("styles.css") as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
     
 left, center, right = st.columns([2, 3, 2])
 
